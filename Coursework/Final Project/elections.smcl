@@ -1,0 +1,499 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\k19056473\Downloads\elections.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}11 Dec 2019, 15:46:37
+{txt}
+{com}. use "C:\Users\k19056473\Downloads\election8.dta"   
+{txt}
+{com}. 
+. 
+. *C)
+. gen dummyd=1 if difshare>=0
+{txt}(3,549 missing values generated)
+
+{com}. replace dummyd=0 if difshare<0
+{txt}(3,549 real changes made)
+
+{com}. tab dummyd
+
+     {txt}dummyd {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}      3,549       45.50       45.50
+{txt}          1 {c |}{res}      4,251       54.50      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      7,800      100.00
+{txt}
+{com}. sort difshare
+{txt}
+{com}. gen difshareP = difshare if dummyd==1
+{txt}(3,549 missing values generated)
+
+{com}. gen difshare2P = difshare^2 if dummyd==1
+{txt}(3,549 missing values generated)
+
+{com}. gen difshare3P = difshare^3 if dummyd==1
+{txt}(3,549 missing values generated)
+
+{com}. gen difshare4P = difshare^4 if dummyd==1
+{txt}(3,549 missing values generated)
+
+{com}. reg mmyoutcomenext difshareP difshare2P difshare3P difshare4P, robust 
+
+{txt}Linear regression                               Number of obs     = {res}     4,251
+                                                {txt}F(4, 4246)        =  {res}   890.55
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.3986
+                                                {txt}Root MSE          =    {res} .07559
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}mmyoutcome~t{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}difshareP {c |}{col 14}{res}{space 2} 1.968099{col 26}{space 2} .0681955{col 37}{space 1}   28.86{col 46}{space 3}0.000{col 54}{space 4}   1.8344{col 67}{space 3} 2.101798
+{txt}{space 2}difshare2P {c |}{col 14}{res}{space 2}-5.610887{col 26}{space 2} .3245355{col 37}{space 1}  -17.29{col 46}{space 3}0.000{col 54}{space 4}-6.247146{col 67}{space 3}-4.974628
+{txt}{space 2}difshare3P {c |}{col 14}{res}{space 2} 6.588802{col 26}{space 2} .5593796{col 37}{space 1}   11.78{col 46}{space 3}0.000{col 54}{space 4} 5.492125{col 67}{space 3} 7.685478
+{txt}{space 2}difshare4P {c |}{col 14}{res}{space 2}-2.744338{col 26}{space 2} .3032284{col 37}{space 1}   -9.05{col 46}{space 3}0.000{col 54}{space 4}-3.338824{col 67}{space 3}-2.149852
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .5946255{col 26}{space 2} .0042308{col 37}{space 1}  140.55{col 46}{space 3}0.000{col 54}{space 4}  .586331{col 67}{space 3}   .60292
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. predict allfitqiP if dummyd==1
+{txt}(option {bf:xb} assumed; fitted values)
+(3,549 missing values generated)
+
+{com}. predict stderror1, stdp
+{txt}(3,549 missing values generated)
+
+{com}. 
+. gen difshareN = difshare if dummyd==0
+{txt}(4,251 missing values generated)
+
+{com}. gen difshare2N = difshare^2 if dummyd==0
+{txt}(4,251 missing values generated)
+
+{com}. gen difshare3N = difshare^3 if dummyd==0
+{txt}(4,251 missing values generated)
+
+{com}. gen difshare4N = difshare^4 if dummyd==0
+{txt}(4,251 missing values generated)
+
+{com}. reg mmyoutcomenext difshareN difshare2N difshare3N difshare4N, robust 
+
+{txt}Linear regression                               Number of obs     = {res}     3,549
+                                                {txt}F(4, 3544)        =  {res}   883.51
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.7015
+                                                {txt}Root MSE          =    {res} .02338
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}mmyoutcome~t{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}difshareN {c |}{col 14}{res}{space 2} 1.387509{col 26}{space 2} .0460275{col 37}{space 1}   30.15{col 46}{space 3}0.000{col 54}{space 4} 1.297266{col 67}{space 3} 1.477752
+{txt}{space 2}difshare2N {c |}{col 14}{res}{space 2} 4.792761{col 26}{space 2}  .213724{col 37}{space 1}   22.42{col 46}{space 3}0.000{col 54}{space 4} 4.373726{col 67}{space 3} 5.211795
+{txt}{space 2}difshare3N {c |}{col 14}{res}{space 2} 6.774068{col 26}{space 2} .3822483{col 37}{space 1}   17.72{col 46}{space 3}0.000{col 54}{space 4} 6.024619{col 67}{space 3} 7.523517
+{txt}{space 2}difshare4N {c |}{col 14}{res}{space 2}   3.2694{col 26}{space 2} .2291653{col 37}{space 1}   14.27{col 46}{space 3}0.000{col 54}{space 4} 2.820091{col 67}{space 3}  3.71871
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}  .141717{col 26}{space 2} .0031289{col 37}{space 1}   45.29{col 46}{space 3}0.000{col 54}{space 4} .1355825{col 67}{space 3} .1478516
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. predict allfitqiN if dummyd==0
+{txt}(option {bf:xb} assumed; fitted values)
+(4,251 missing values generated)
+
+{com}. predict stderror2, stdp
+{txt}(4,251 missing values generated)
+
+{com}. 
+. summ allfitqiP stderror1 allfitqiN stderror2
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 3}allfitqiP {c |}{res}      4,251    .7936001    .0615153   .5951261   .8374658
+{txt}{space 3}stderror1 {c |}{res}      4,251    .0025319    .0017157   .0014273    .008727
+{txt}{space 3}allfitqiN {c |}{res}      3,549    .0248753     .035822  -.0302803   .1412899
+{txt}{space 3}stderror2 {c |}{res}      3,549    .0007568    .0008372   .0003151    .023853
+{txt}
+{com}. 
+. reg mmyoutcomenext difshareP, robust 
+
+{txt}Linear regression                               Number of obs     = {res}     4,251
+                                                {txt}F(1, 4249)        =  {res}   385.82
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.1463
+                                                {txt}Root MSE          =    {res} .09003
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}mmyoutcome~t{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}difshareP {c |}{col 14}{res}{space 2}  .151831{col 26}{space 2} .0077298{col 37}{space 1}   19.64{col 46}{space 3}0.000{col 54}{space 4} .1366766{col 67}{space 3} .1669854
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .7417157{col 26}{space 2} .0026975{col 37}{space 1}  274.96{col 46}{space 3}0.000{col 54}{space 4} .7364272{col 67}{space 3} .7470042
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. predict allfitlinP
+{txt}(option {bf:xb} assumed; fitted values)
+(3,549 missing values generated)
+
+{com}. 
+. reg mmyoutcomenext difshareN, robust 
+
+{txt}Linear regression                               Number of obs     = {res}     3,549
+                                                {txt}F(1, 3547)        =  {res}  1235.37
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.3955
+                                                {txt}Root MSE          =    {res} .03326
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}mmyoutcome~t{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}difshareN {c |}{col 14}{res}{space 2} .1766162{col 26}{space 2}  .005025{col 37}{space 1}   35.15{col 46}{space 3}0.000{col 54}{space 4} .1667641{col 67}{space 3} .1864683
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .0671214{col 26}{space 2} .0015803{col 37}{space 1}   42.47{col 46}{space 3}0.000{col 54}{space 4} .0640231{col 67}{space 3} .0702198
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. predict allfitlinN
+{txt}(option {bf:xb} assumed; fitted values)
+(4,251 missing values generated)
+
+{com}. 
+. twoway (scatter mmyoutcomenext difshare if difshare >=-.25 & difshare <=.25) (line allfitqiN allfitlinN difshare if dummyd==0 & difshare >=-.25 & difshare <=.25,  lcolor(red black) lpattern(dash)) ///
+>                                                                              (line allfitqiP allfitlinP difshare if dummyd==1 & difshare >=-.25 & difshare <=.25, lcolor(red black) lpattern(dash))
+{res}{txt}
+{com}. twoway (scatter mmyoutcomenext difshare) (line allfitqiN allfitlinN difshare if dummyd==0,  lcolor(red black) lpattern(dash)) ///
+>                                          (line allfitqiP allfitlinP difshare if dummyd==1, lcolor(red black) lpattern(dash))
+{res}{txt}
+{com}.                                                                                                                                                          
+. 
+.                                                                    
+.                                                                            
+. *D)
+. reg mrunagain difshareP difshare2P difshare3P difshare4P, robust 
+
+{txt}Linear regression                               Number of obs     = {res}     4,251
+                                                {txt}F(4, 4246)        =  {res}    11.42
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0149
+                                                {txt}Root MSE          =    {res} .06403
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}   mrunagain{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}difshareP {c |}{col 14}{res}{space 2} .0035973{col 26}{space 2} .0583081{col 37}{space 1}    0.06{col 46}{space 3}0.951{col 54}{space 4}-.1107171{col 67}{space 3} .1179117
+{txt}{space 2}difshare2P {c |}{col 14}{res}{space 2} .3848779{col 26}{space 2} .2848961{col 37}{space 1}    1.35{col 46}{space 3}0.177{col 54}{space 4}-.1736674{col 67}{space 3} .9434232
+{txt}{space 2}difshare3P {c |}{col 14}{res}{space 2}-.9797261{col 26}{space 2} .4973172{col 37}{space 1}   -1.97{col 46}{space 3}0.049{col 54}{space 4}-1.954728{col 67}{space 3}-.0047244
+{txt}{space 2}difshare4P {c |}{col 14}{res}{space 2}  .585648{col 26}{space 2}  .270745{col 37}{space 1}    2.16{col 46}{space 3}0.031{col 54}{space 4} .0548463{col 67}{space 3}  1.11645
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .8656249{col 26}{space 2} .0034102{col 37}{space 1}  253.84{col 46}{space 3}0.000{col 54}{space 4} .8589392{col 67}{space 3} .8723106
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. predict Fitlin2
+{txt}(option {bf:xb} assumed; fitted values)
+(3,549 missing values generated)
+
+{com}. 
+. reg mrunagain difshareN difshare2N difshare3N difshare4N, robust 
+
+{txt}Linear regression                               Number of obs     = {res}     3,549
+                                                {txt}F(4, 3544)        =  {res}  1604.93
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.5808
+                                                {txt}Root MSE          =    {res} .06699
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}   mrunagain{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}difshareN {c |}{col 14}{res}{space 2}  2.77124{col 26}{space 2}   .11761{col 37}{space 1}   23.56{col 46}{space 3}0.000{col 54}{space 4}  2.54065{col 67}{space 3}  3.00183
+{txt}{space 2}difshare2N {c |}{col 14}{res}{space 2} 9.170333{col 26}{space 2} .7339798{col 37}{space 1}   12.49{col 46}{space 3}0.000{col 54}{space 4} 7.731268{col 67}{space 3}  10.6094
+{txt}{space 2}difshare3N {c |}{col 14}{res}{space 2} 12.77864{col 26}{space 2} 1.625612{col 37}{space 1}    7.86{col 46}{space 3}0.000{col 54}{space 4}  9.59141{col 67}{space 3} 15.96587
+{txt}{space 2}difshare4N {c |}{col 14}{res}{space 2} 6.202893{col 26}{space 2} 1.165776{col 37}{space 1}    5.32{col 46}{space 3}0.000{col 54}{space 4} 3.917233{col 67}{space 3} 8.488552
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .4312079{col 26}{space 2} .0049812{col 37}{space 1}   86.57{col 46}{space 3}0.000{col 54}{space 4} .4214417{col 67}{space 3} .4409742
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. predict LinFit2
+{txt}(option {bf:xb} assumed; fitted values)
+(4,251 missing values generated)
+
+{com}. twoway (scatter mrunagain difshare if difshare >=-.25 & difshare <=.25) (line LinFit2 difshare if difshare <= 0 & difshare >=-.25 & difshare <=.25,  lcolor(red black) lpattern(dash)) ///
+>                                          (line Fitlin2  difshare if difshare >= 0 & difshare >=-.25 & difshare <=.25, lcolor(red black) lpattern(dash))
+{res}{txt}
+{com}. *E)
+. 
+. reg mofficeexp difshareP difshare2P difshare3P difshare4P, robust 
+
+{txt}Linear regression                               Number of obs     = {res}     4,251
+                                                {txt}F(4, 4246)        =  {res}  4457.88
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.6600
+                                                {txt}Root MSE          =    {res}  .7396
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}  mofficeexp{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}difshareP {c |}{col 14}{res}{space 2} 16.14351{col 26}{space 2} .6344562{col 37}{space 1}   25.44{col 46}{space 3}0.000{col 54}{space 4} 14.89964{col 67}{space 3} 17.38737
+{txt}{space 2}difshare2P {c |}{col 14}{res}{space 2} -17.9769{col 26}{space 2} 3.289203{col 37}{space 1}   -5.47{col 46}{space 3}0.000{col 54}{space 4}-24.42545{col 67}{space 3}-11.52834
+{txt}{space 2}difshare3P {c |}{col 14}{res}{space 2}-3.788628{col 26}{space 2} 5.794954{col 37}{space 1}   -0.65{col 46}{space 3}0.513{col 54}{space 4}-15.14977{col 67}{space 3} 7.572512
+{txt}{space 2}difshare4P {c |}{col 14}{res}{space 2}  8.00229{col 26}{space 2} 3.133405{col 37}{space 1}    2.55{col 46}{space 3}0.011{col 54}{space 4} 1.859178{col 67}{space 3}  14.1454
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.181515{col 26}{space 2} .0306238{col 37}{space 1}   38.58{col 46}{space 3}0.000{col 54}{space 4} 1.121477{col 67}{space 3} 1.241554
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. predict Fitlin3
+{txt}(option {bf:xb} assumed; fitted values)
+(3,549 missing values generated)
+
+{com}. 
+. reg mofficeexp difshareN difshare2N difshare3N difshare4N, robust 
+
+{txt}Linear regression                               Number of obs     = {res}     3,549
+                                                {txt}F(4, 3544)        =  {res}   892.27
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.6341
+                                                {txt}Root MSE          =    {res} .21813
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}  mofficeexp{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}difshareN {c |}{col 14}{res}{space 2} 7.166663{col 26}{space 2} .2233713{col 37}{space 1}   32.08{col 46}{space 3}0.000{col 54}{space 4} 6.728713{col 67}{space 3} 7.604612
+{txt}{space 2}difshare2N {c |}{col 14}{res}{space 2} 17.07679{col 26}{space 2} 1.048376{col 37}{space 1}   16.29{col 46}{space 3}0.000{col 54}{space 4} 15.02131{col 67}{space 3} 19.13227
+{txt}{space 2}difshare3N {c |}{col 14}{res}{space 2} 16.11116{col 26}{space 2} 1.917502{col 37}{space 1}    8.40{col 46}{space 3}0.000{col 54}{space 4} 12.35164{col 67}{space 3} 19.87068
+{txt}{space 2}difshare4N {c |}{col 14}{res}{space 2} 4.993611{col 26}{space 2} 1.142567{col 37}{space 1}    4.37{col 46}{space 3}0.000{col 54}{space 4} 2.753455{col 67}{space 3} 7.233767
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.052536{col 26}{space 2} .0178734{col 37}{space 1}   58.89{col 46}{space 3}0.000{col 54}{space 4} 1.017493{col 67}{space 3} 1.087579
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. predict LinFit3
+{txt}(option {bf:xb} assumed; fitted values)
+(4,251 missing values generated)
+
+{com}. twoway (scatter mofficeexp difshare) (line LinFit3 difshare if difshare <= 0,  lcolor(red black) lpattern(dash)) ///
+>                                          (line Fitlin3  difshare if difshare >= 0, lcolor(red black) lpattern(dash))
+{res}{txt}
+{com}. reg melectexp difshareP difshare2P difshare3P difshare4P, robust 
+
+{txt}Linear regression                               Number of obs     = {res}     4,251
+                                                {txt}F(4, 4246)        =  {res}  4270.44
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.6272
+                                                {txt}Root MSE          =    {res} .75129
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}   melectexp{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}difshareP {c |}{col 14}{res}{space 2}  15.6208{col 26}{space 2} .6372548{col 37}{space 1}   24.51{col 46}{space 3}0.000{col 54}{space 4} 14.37145{col 67}{space 3} 16.87015
+{txt}{space 2}difshare2P {c |}{col 14}{res}{space 2}-17.84929{col 26}{space 2} 3.341433{col 37}{space 1}   -5.34{col 46}{space 3}0.000{col 54}{space 4}-24.40024{col 67}{space 3}-11.29833
+{txt}{space 2}difshare3P {c |}{col 14}{res}{space 2}-3.334285{col 26}{space 2} 5.916129{col 37}{space 1}   -0.56{col 46}{space 3}0.573{col 54}{space 4}-14.93299{col 67}{space 3}  8.26442
+{txt}{space 2}difshare4P {c |}{col 14}{res}{space 2} 7.728815{col 26}{space 2} 3.205643{col 37}{space 1}    2.41{col 46}{space 3}0.016{col 54}{space 4} 1.444078{col 67}{space 3} 14.01355
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.453521{col 26}{space 2} .0296204{col 37}{space 1}   49.07{col 46}{space 3}0.000{col 54}{space 4}  1.39545{col 67}{space 3} 1.511593
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. predict Fitlin4
+{txt}(option {bf:xb} assumed; fitted values)
+(3,549 missing values generated)
+
+{com}. 
+. reg melectexp difshareN difshare2N difshare3N difshare4N, robust 
+
+{txt}Linear regression                               Number of obs     = {res}     3,549
+                                                {txt}F(4, 3544)        =  {res}   937.92
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.6055
+                                                {txt}Root MSE          =    {res} .26107
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}   melectexp{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}difshareN {c |}{col 14}{res}{space 2} 7.273535{col 26}{space 2} .3701724{col 37}{space 1}   19.65{col 46}{space 3}0.000{col 54}{space 4} 6.547763{col 67}{space 3} 7.999308
+{txt}{space 2}difshare2N {c |}{col 14}{res}{space 2} 14.92868{col 26}{space 2} 2.120458{col 37}{space 1}    7.04{col 46}{space 3}0.000{col 54}{space 4} 10.77124{col 67}{space 3} 19.08612
+{txt}{space 2}difshare3N {c |}{col 14}{res}{space 2} 10.28729{col 26}{space 2} 4.220139{col 37}{space 1}    2.44{col 46}{space 3}0.015{col 54}{space 4} 2.013144{col 67}{space 3} 18.56144
+{txt}{space 2}difshare4N {c |}{col 14}{res}{space 2} 1.145411{col 26}{space 2} 2.445857{col 37}{space 1}    0.47{col 46}{space 3}0.640{col 54}{space 4}-3.650018{col 67}{space 3}  5.94084
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.328024{col 26}{space 2} .0211684{col 37}{space 1}   62.74{col 46}{space 3}0.000{col 54}{space 4} 1.286521{col 67}{space 3} 1.369528
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. predict LinFit4
+{txt}(option {bf:xb} assumed; fitted values)
+(4,251 missing values generated)
+
+{com}. twoway (scatter melectexp difshare if difshare >=-.25 & difshare <=.25) (line LinFit4 difshare if difshare <=0 & difshare >=-.25 & difshare <=.25,  lcolor(red black) lpattern(dash)) ///
+>                                          (line Fitlin4  difshare if difshare >= 0 & difshare >=-.25 & difshare <=.25, lcolor(red black) lpattern(dash))
+{res}{txt}
+{com}. *F)
+. 
+. reg mmyoutcomenext melectexp mofficeexp difshareP difshare2P difshare3P difshare4P, robust 
+
+{txt}Linear regression                               Number of obs     = {res}     4,251
+                                                {txt}F(6, 4244)        =  {res}   595.25
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.4021
+                                                {txt}Root MSE          =    {res} .07539
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}mmyoutcome~t{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}melectexp {c |}{col 14}{res}{space 2} -.048082{col 26}{space 2} .0169932{col 37}{space 1}   -2.83{col 46}{space 3}0.005{col 54}{space 4}-.0813976{col 67}{space 3}-.0147665
+{txt}{space 2}mofficeexp {c |}{col 14}{res}{space 2} .0543106{col 26}{space 2} .0173643{col 37}{space 1}    3.13{col 46}{space 3}0.002{col 54}{space 4} .0202674{col 67}{space 3} .0883538
+{txt}{space 3}difshareP {c |}{col 14}{res}{space 2} 1.842416{col 26}{space 2} .0814268{col 37}{space 1}   22.63{col 46}{space 3}0.000{col 54}{space 4} 1.682776{col 67}{space 3} 2.002055
+{txt}{space 2}difshare2P {c |}{col 14}{res}{space 2}-5.492781{col 26}{space 2} .3267902{col 37}{space 1}  -16.81{col 46}{space 3}0.000{col 54}{space 4}-6.133461{col 67}{space 3}-4.852101
+{txt}{space 2}difshare3P {c |}{col 14}{res}{space 2} 6.634245{col 26}{space 2}  .551167{col 37}{space 1}   12.04{col 46}{space 3}0.000{col 54}{space 4} 5.553669{col 67}{space 3} 7.714821
+{txt}{space 2}difshare4P {c |}{col 14}{res}{space 2} -2.80733{col 26}{space 2} .2988511{col 37}{space 1}   -9.39{col 46}{space 3}0.000{col 54}{space 4}-3.393234{col 67}{space 3}-2.221425
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}  .600345{col 26}{space 2} .0066516{col 37}{space 1}   90.26{col 46}{space 3}0.000{col 54}{space 4} .5873043{col 67}{space 3} .6133857
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. predict Fitlin5
+{txt}(option {bf:xb} assumed; fitted values)
+(3,549 missing values generated)
+
+{com}. 
+. reg mmyoutcomenext melectexp mofficeexp difshareN difshare2N difshare3N difshare4N, robust 
+
+{txt}Linear regression                               Number of obs     = {res}     3,549
+                                                {txt}F(6, 3542)        =  {res}   671.92
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.7057
+                                                {txt}Root MSE          =    {res} .02322
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}mmyoutcome~t{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}melectexp {c |}{col 14}{res}{space 2}-.0048541{col 26}{space 2} .0034361{col 37}{space 1}   -1.41{col 46}{space 3}0.158{col 54}{space 4}-.0115911{col 67}{space 3} .0018828
+{txt}{space 2}mofficeexp {c |}{col 14}{res}{space 2} .0175649{col 26}{space 2} .0041066{col 37}{space 1}    4.28{col 46}{space 3}0.000{col 54}{space 4} .0095134{col 67}{space 3} .0256164
+{txt}{space 3}difshareN {c |}{col 14}{res}{space 2} 1.296934{col 26}{space 2} .0516621{col 37}{space 1}   25.10{col 46}{space 3}0.000{col 54}{space 4} 1.195643{col 67}{space 3} 1.398224
+{txt}{space 2}difshare2N {c |}{col 14}{res}{space 2} 4.565274{col 26}{space 2} .2275671{col 37}{space 1}   20.06{col 46}{space 3}0.000{col 54}{space 4} 4.119098{col 67}{space 3} 5.011449
+{txt}{space 2}difshare3N {c |}{col 14}{res}{space 2} 6.541012{col 26}{space 2} .4006451{col 37}{space 1}   16.33{col 46}{space 3}0.000{col 54}{space 4} 5.755494{col 67}{space 3}  7.32653
+{txt}{space 2}difshare4N {c |}{col 14}{res}{space 2} 3.187248{col 26}{space 2} .2392446{col 37}{space 1}   13.32{col 46}{space 3}0.000{col 54}{space 4} 2.718177{col 67}{space 3} 3.656319
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .1296757{col 26}{space 2} .0042338{col 37}{space 1}   30.63{col 46}{space 3}0.000{col 54}{space 4} .1213747{col 67}{space 3} .1379767
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. predict LinFit5
+{txt}(option {bf:xb} assumed; fitted values)
+(4,251 missing values generated)
+
+{com}. twoway (scatter mmyoutcomenext difshare if difshare >=-.25 & difshare <=.25) (line LinFit5 difshare if difshare <= 0 & difshare >=-.25 & difshare <=.25,  lcolor(red black) lpattern(dash)) ///
+>                                          (line Fitlin5  difshare if difshare >= 0 & difshare >=-.25 & difshare <=.25, lcolor(red black) lpattern(dash))
+{res}{txt}
+{com}. 
+. reg mrunagain melectexp mofficeexp difshareP difshare2P difshare3P difshare4P, robust 
+
+{txt}Linear regression                               Number of obs     = {res}     4,251
+                                                {txt}F(6, 4244)        =  {res}     8.18
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0177
+                                                {txt}Root MSE          =    {res} .06395
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}   mrunagain{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}melectexp {c |}{col 14}{res}{space 2}  .005084{col 26}{space 2} .0151201{col 37}{space 1}    0.34{col 46}{space 3}0.737{col 54}{space 4}-.0245593{col 67}{space 3} .0347274
+{txt}{space 2}mofficeexp {c |}{col 14}{res}{space 2}-.0004776{col 26}{space 2} .0155477{col 37}{space 1}   -0.03{col 46}{space 3}0.975{col 54}{space 4}-.0309593{col 67}{space 3}  .030004
+{txt}{space 3}difshareP {c |}{col 14}{res}{space 2}-.0681093{col 26}{space 2} .0703047{col 37}{space 1}   -0.97{col 46}{space 3}0.333{col 54}{space 4}-.2059432{col 67}{space 3} .0697246
+{txt}{space 2}difshare2P {c |}{col 14}{res}{space 2} .4670386{col 26}{space 2} .2907405{col 37}{space 1}    1.61{col 46}{space 3}0.108{col 54}{space 4} -.102965{col 67}{space 3} 1.037042
+{txt}{space 2}difshare3P {c |}{col 14}{res}{space 2} -.964584{col 26}{space 2}  .492563{col 37}{space 1}   -1.96{col 46}{space 3}0.050{col 54}{space 4}-1.930265{col 67}{space 3} .0010971
+{txt}{space 2}difshare4P {c |}{col 14}{res}{space 2} .5501763{col 26}{space 2} .2665267{col 37}{space 1}    2.06{col 46}{space 3}0.039{col 54}{space 4} .0276446{col 67}{space 3} 1.072708
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .8587994{col 26}{space 2} .0052343{col 37}{space 1}  164.07{col 46}{space 3}0.000{col 54}{space 4} .8485375{col 67}{space 3} .8690613
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. predict Fitlin6
+{txt}(option {bf:xb} assumed; fitted values)
+(3,549 missing values generated)
+
+{com}. 
+. reg mrunagain melectexp mofficeexp difshareN difshare2N difshare3N difshare4N, robust 
+
+{txt}Linear regression                               Number of obs     = {res}     3,549
+                                                {txt}F(6, 3542)        =  {res}  1185.72
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.5882
+                                                {txt}Root MSE          =    {res} .06641
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}   mrunagain{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}melectexp {c |}{col 14}{res}{space 2} .0351837{col 26}{space 2} .0233995{col 37}{space 1}    1.50{col 46}{space 3}0.133{col 54}{space 4}-.0106941{col 67}{space 3} .0810616
+{txt}{space 2}mofficeexp {c |}{col 14}{res}{space 2}-.0745601{col 26}{space 2} .0255212{col 37}{space 1}   -2.92{col 46}{space 3}0.004{col 54}{space 4}-.1245979{col 67}{space 3}-.0245223
+{txt}{space 3}difshareN {c |}{col 14}{res}{space 2} 3.049677{col 26}{space 2}  .111182{col 37}{space 1}   27.43{col 46}{space 3}0.000{col 54}{space 4}  2.83169{col 67}{space 3} 3.267664
+{txt}{space 2}difshare2N {c |}{col 14}{res}{space 2} 9.918334{col 26}{space 2} .6867063{col 37}{space 1}   14.44{col 46}{space 3}0.000{col 54}{space 4} 8.571954{col 67}{space 3} 11.26471
+{txt}{space 2}difshare3N {c |}{col 14}{res}{space 2} 13.61794{col 26}{space 2} 1.531198{col 37}{space 1}    8.89{col 46}{space 3}0.000{col 54}{space 4} 10.61583{col 67}{space 3} 16.62006
+{txt}{space 2}difshare4N {c |}{col 14}{res}{space 2} 6.534917{col 26}{space 2} 1.113592{col 37}{space 1}    5.87{col 46}{space 3}0.000{col 54}{space 4} 4.351571{col 67}{space 3} 8.718263
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .4629603{col 26}{space 2} .0075344{col 37}{space 1}   61.45{col 46}{space 3}0.000{col 54}{space 4}  .448188{col 67}{space 3} .4777326
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. predict LinFit6
+{txt}(option {bf:xb} assumed; fitted values)
+(4,251 missing values generated)
+
+{com}. twoway (scatter mrunagain difshare if difshare >=-.25 & difshare <=.25) (line LinFit6 difshare if difshare <= 0 & difshare >=-.25 & difshare <=.25,  lcolor(red black) lpattern(dash)) ///
+>                                          (line Fitlin6  difshare if difshare >= 0& difshare >=-.25 & difshare <=.25, lcolor(red black) lpattern(dash))
+{res}{txt}
+{com}. 
+. 
+. 
+. 
+. /*
+> orthpoly difshare if difshare>=0, deg(4) generate( difshareP difshare2P difshare3P difshare4P)
+> gen difshareP = difshare>0
+> gen difshare2P = difshare^2 if difshare >0
+> gen difshare3P = difshare^3 if difshare >0
+> gen difshare4P = difshare^4 if difshare >0
+> orthpoly difshare if difshare<=0, deg(4) generate( difshareN difshare2N difshare3N difshare4N)
+> gen difshareN = difshare<=0
+> gen difshare2N = difshare^2 if difshare <=0
+> gen difshare3N = difshare^3 if difshare <=0
+> gen difshare4N = difshare^4 if difshare <=0
+> reg mmyoutcomenext difshareN difshare2N difshare3N difshare4N
+> 
+> 
+> 
+> yearel difshare mmyoutcomenext mrunagain mofficeexp melectexp
+> 
+> *gen over21 = agecell >= 21
+> 
+> * Simple model - linear
+> reg all agecell over21, robust
+> predict allfitlin
+>                                                          
+> * Quadratic model on each side
+> gen age = agecell - 21
+> gen age2 = age^2
+> gen over_age = over21*age
+> gen over_age2 = over21*age2
+> 
+> reg all age age2 over21 over_age over_age2, robust
+> predict allfitqi
+> 
+> twoway (scatter all agecell) (line allfitlin allfitqi agecell if age < 0,  lcolor(red black) lpattern(dash)) ///
+>                              (line allfitlin allfitqi agecell if age >= 0, lcolor(red black) lpattern(dash))
+>                                          
+>                                 
+> *Restrict to age group 20-21
+> keep if agecell>=20&agecell<22
+> reg all agecell over21, robust
+> predict allfitlinred
+> 
+> reg all age age2 over21 over_age over_age2, robust
+> predict allfitqired
+> 
+> twoway (scatter all agecell) (line allfitlinred allfitqired agecell if age < 0,  lcolor(red black) lpattern(dash)) ///
+>                              (line allfitlinred allfitqired agecell if age >= 0, lcolor(red black) lpattern(dash))
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+
+{txt}end of do-file
+
+{com}. 

@@ -1,0 +1,110 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\k19056473\Downloads\pset3dofile.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}18 Oct 2019, 13:49:29
+{txt}
+{com}. 
+. use "C:\Users\k19056473\Downloads\TeachingRatings.dta"
+{txt}
+{com}. 
+. *Question 1 a
+. 
+. reg course_eval beauty, vce(robust)
+
+{txt}Linear regression                               Number of obs     = {res}       463
+                                                {txt}F(1, 461)         =  {res}    16.94
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0357
+                                                {txt}Root MSE          =    {res} .54545
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1} course_eval{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 6}beauty {c |}{col 14}{res}{space 2} .1330014{col 26}{space 2} .0323189{col 37}{space 1}    4.12{col 46}{space 3}0.000{col 54}{space 4} .0694908{col 67}{space 3} .1965121
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 3.998272{col 26}{space 2} .0253493{col 37}{space 1}  157.73{col 46}{space 3}0.000{col 54}{space 4} 3.948458{col 67}{space 3} 4.048087
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *Question 1 b
+. 
+. reg course_eval beauty female, vce(robust)
+
+{txt}Linear regression                               Number of obs     = {res}       463
+                                                {txt}F(2, 460)         =  {res}    18.22
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0663
+                                                {txt}Root MSE          =    {res} .53732
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1} course_eval{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 6}beauty {c |}{col 14}{res}{space 2} .1485876{col 26}{space 2} .0321911{col 37}{space 1}    4.62{col 46}{space 3}0.000{col 54}{space 4} .0853278{col 67}{space 3} .2118475
+{txt}{space 6}female {c |}{col 14}{res}{space 2}-.1978096{col 26}{space 2} .0502136{col 37}{space 1}   -3.94{col 46}{space 3}0.000{col 54}{space 4}-.2964862{col 67}{space 3} -.099133
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 4.081583{col 26}{space 2} .0325602{col 37}{space 1}  125.36{col 46}{space 3}0.000{col 54}{space 4} 4.017598{col 67}{space 3} 4.145568
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *Question 1 c  
+. 
+. reg course_eval i.female##c.beauty, vce(robust)
+
+{txt}Linear regression                               Number of obs     = {res}       463
+                                                {txt}F(3, 459)         =  {res}    12.65
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0726
+                                                {txt}Root MSE          =    {res}  .5361
+
+{txt}{hline 16}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 17}{c |}{col 29}    Robust
+{col 1}    course_eval{col 17}{c |}      Coef.{col 29}   Std. Err.{col 41}      t{col 49}   P>|t|{col 57}     [95% Con{col 70}f. Interval]
+{hline 16}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}1.female {c |}{col 17}{res}{space 2}-.1950969{col 29}{space 2} .0501139{col 40}{space 1}   -3.89{col 49}{space 3}0.000{col 57}{space 4}-.2935781{col 70}{space 3}-.0966158
+{txt}{space 9}beauty {c |}{col 17}{res}{space 2} .2002743{col 29}{space 2} .0474587{col 40}{space 1}    4.22{col 49}{space 3}0.000{col 57}{space 4} .1070111{col 70}{space 3} .2935375
+{txt}{space 15} {c |}
+female#c.beauty {c |}
+{space 13}1  {c |}{col 17}{res}{space 2}-.1126579{col 29}{space 2} .0623654{col 40}{space 1}   -1.81{col 49}{space 3}0.072{col 57}{space 4} -.235215{col 70}{space 3} .0098992
+{txt}{space 15} {c |}
+{space 10}_cons {c |}{col 17}{res}{space 2} 4.085949{col 29}{space 2} .0323893{col 40}{space 1}  126.15{col 49}{space 3}0.000{col 57}{space 4}   4.0223{col 70}{space 3} 4.149599
+{txt}{hline 16}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *Question 1 d
+. 
+. reg course_eval i.female##c.beauty minority age onecredit nnenglish intro, vce(robust)
+
+{txt}Linear regression                               Number of obs     = {res}       463
+                                                {txt}F(8, 454)         =  {res}    13.14
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.1644
+                                                {txt}Root MSE          =    {res} .51167
+
+{txt}{hline 16}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 17}{c |}{col 29}    Robust
+{col 1}    course_eval{col 17}{c |}      Coef.{col 29}   Std. Err.{col 41}      t{col 49}   P>|t|{col 57}     [95% Con{col 70}f. Interval]
+{hline 16}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}1.female {c |}{col 17}{res}{space 2}-.1795463{col 29}{space 2} .0524193{col 40}{space 1}   -3.43{col 49}{space 3}0.001{col 57}{space 4}-.2825609{col 70}{space 3}-.0765317
+{txt}{space 9}beauty {c |}{col 17}{res}{space 2} .2249199{col 29}{space 2} .0466565{col 40}{space 1}    4.82{col 49}{space 3}0.000{col 57}{space 4} .1332304{col 70}{space 3} .3166095
+{txt}{space 15} {c |}
+female#c.beauty {c |}
+{space 13}1  {c |}{col 17}{res}{space 2}-.1373358{col 29}{space 2} .0631631{col 40}{space 1}   -2.17{col 49}{space 3}0.030{col 57}{space 4}-.2614641{col 70}{space 3}-.0132076
+{txt}{space 15} {c |}
+{space 7}minority {c |}{col 17}{res}{space 2}-.1374131{col 29}{space 2} .0696002{col 40}{space 1}   -1.97{col 49}{space 3}0.049{col 57}{space 4}-.2741917{col 70}{space 3}-.0006345
+{txt}{space 12}age {c |}{col 17}{res}{space 2}-.0013197{col 29}{space 2} .0026128{col 40}{space 1}   -0.51{col 49}{space 3}0.614{col 57}{space 4}-.0064544{col 70}{space 3} .0038149
+{txt}{space 6}onecredit {c |}{col 17}{res}{space 2} .6550109{col 29}{space 2} .1084423{col 40}{space 1}    6.04{col 49}{space 3}0.000{col 57}{space 4} .4418998{col 70}{space 3} .8681221
+{txt}{space 6}nnenglish {c |}{col 17}{res}{space 2}-.2671156{col 29}{space 2} .0945221{col 40}{space 1}   -2.83{col 49}{space 3}0.005{col 57}{space 4}-.4528706{col 70}{space 3}-.0813606
+{txt}{space 10}intro {c |}{col 17}{res}{space 2}-.0032062{col 29}{space 2} .0559005{col 40}{space 1}   -0.06{col 49}{space 3}0.954{col 57}{space 4}-.1130621{col 70}{space 3} .1066497
+{txt}{space 10}_cons {c |}{col 17}{res}{space 2} 4.142474{col 29}{space 2} .1404355{col 40}{space 1}   29.50{col 49}{space 3}0.000{col 57}{space 4}  3.86649{col 70}{space 3} 4.418459
+{txt}{hline 16}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. translate "C:\Users\k19056473\Downloads\pset3dofile.smcl"   "C:\Users\k19056473\Downloads\pset3results.pdf"
+{txt}(file C:\Users\k19056473\Downloads\pset3results.pdf written in PDF format)
+
+{com}. 
+{txt}end of do-file
+
+{com}. 

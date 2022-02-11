@@ -1,0 +1,327 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\k19056473\Downloads\crime.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res} 8 Dec 2019, 20:26:56
+{txt}
+{com}. use "C:\Users\k19056473\Downloads\crime8.dta"  
+{txt}
+{com}. 
+. *A) DD table 
+. mean(crime) if treat==1 & policy6==0
+{res}
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}        24
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. Err.{col 38}     [95% Con{col 51}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 7}crime {c |}{col 14}{res}{space 2} 4.332612{col 26}{space 2} .3224739{col 37}{space 5} 3.665524{col 51}{space 3}   4.9997
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+
+{com}. mean(crime) if treat==1 & policy6==1
+{res}
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}        24
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. Err.{col 38}     [95% Con{col 51}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 7}crime {c |}{col 14}{res}{space 2} 3.837862{col 26}{space 2} .2890618{col 37}{space 5} 3.239892{col 51}{space 3} 4.435832
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+
+{com}. mean(crime) if treat==0 & policy6==0
+{res}
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}       144
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. Err.{col 38}     [95% Con{col 51}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 7}crime {c |}{col 14}{res}{space 2} 2.005973{col 26}{space 2} .0454096{col 37}{space 5} 1.916212{col 51}{space 3} 2.095734
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+
+{com}. mean(crime) if treat==0 & policy6==1 
+{res}
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}       144
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. Err.{col 38}     [95% Con{col 51}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 7}crime {c |}{col 14}{res}{space 2} 1.979886{col 26}{space 2} .0424463{col 37}{space 5} 1.895983{col 51}{space 3} 2.063789
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+
+{com}. 
+. mean(police) if treat==1 & policy6==0
+{res}
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}        24
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. Err.{col 38}     [95% Con{col 51}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 6}police {c |}{col 14}{res}{space 2} 180.5045{col 26}{space 2} 14.67938{col 37}{space 5} 150.1379{col 51}{space 3} 210.8711
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+
+{com}. mean(police) if treat==1 & policy6==1
+{res}
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}        24
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. Err.{col 38}     [95% Con{col 51}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 6}police {c |}{col 14}{res}{space 2} 254.9631{col 26}{space 2} 17.98709{col 37}{space 5}  217.754{col 51}{space 3} 292.1722
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+
+{com}. mean(police) if treat==0 & policy6==0
+{res}
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}       144
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. Err.{col 38}     [95% Con{col 51}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 6}police {c |}{col 14}{res}{space 2} 83.28747{col 26}{space 2} 2.330027{col 37}{space 5} 78.68172{col 51}{space 3} 87.89322
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+
+{com}. mean(police) if treat==0 & policy6==1
+{res}
+{txt}Mean estimation{col 35}Number of obs{col 51}= {res}       144
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 14}{hline 12}
+{col 14}{c |}       Mean{col 26}   Std. Err.{col 38}     [95% Con{col 51}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 14}{hline 12}
+{space 6}police {c |}{col 14}{res}{space 2} 86.42138{col 26}{space 2} 2.293265{col 37}{space 5}  81.8883{col 51}{space 3} 90.95446
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 14}{hline 12}
+
+{com}. 
+. xi: reg crime i.policy6*i.treat , vce(cluster borough)
+{txt}i.policy6{col 19}_Ipolicy6_0-1{col 39}(naturally coded; _Ipolicy6_0 omitted)
+i.treat{col 19}_Itreat_0-1{col 39}(naturally coded; _Itreat_0 omitted)
+i.pol~6*i.treat{col 19}_IpolXtre_#_#{col 39}(coded as above)
+
+Linear regression                               Number of obs     = {res}       336
+                                                {txt}F(3, 27)          =  {res}     6.17
+                                                {txt}Prob > F          = {res}    0.0025
+                                                {txt}R-squared         = {res}    0.5000
+                                                {txt}Root MSE          =    {res} .74261
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:28} clusters in borough)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}       crime{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}_Ipolicy6_1 {c |}{col 14}{res}{space 2}-.0260872{col 26}{space 2} .0329402{col 37}{space 1}   -0.79{col 46}{space 3}0.435{col 54}{space 4}-.0936749{col 67}{space 3} .0415005
+{txt}{space 3}_Itreat_1 {c |}{col 14}{res}{space 2} 2.326638{col 26}{space 2} .7921296{col 37}{space 1}    2.94{col 46}{space 3}0.007{col 54}{space 4} .7013228{col 67}{space 3} 3.951954
+{txt}_IpolXtre_~1 {c |}{col 14}{res}{space 2} -.468662{col 26}{space 2} .1221057{col 37}{space 1}   -3.84{col 46}{space 3}0.001{col 54}{space 4}-.7192022{col 67}{space 3}-.2181217
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 2.005973{col 26}{space 2} .1100892{col 37}{space 1}   18.22{col 46}{space 3}0.000{col 54}{space 4} 1.780089{col 67}{space 3} 2.231858
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. xi: reg police i.policy6*i.treat , vce(cluster borough)
+{txt}i.policy6{col 19}_Ipolicy6_0-1{col 39}(naturally coded; _Ipolicy6_0 omitted)
+i.treat{col 19}_Itreat_0-1{col 39}(naturally coded; _Itreat_0 omitted)
+i.pol~6*i.treat{col 19}_IpolXtre_#_#{col 39}(coded as above)
+
+Linear regression                               Number of obs     = {res}       336
+                                                {txt}F(3, 27)          =  {res}   400.04
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.6053
+                                                {txt}Root MSE          =    {res} 39.486
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:28} clusters in borough)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}      police{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}_Ipolicy6_1 {c |}{col 14}{res}{space 2} 3.133912{col 26}{space 2} .9666851{col 37}{space 1}    3.24{col 46}{space 3}0.003{col 54}{space 4} 1.150438{col 67}{space 3} 5.117386
+{txt}{space 3}_Itreat_1 {c |}{col 14}{res}{space 2} 97.21702{col 26}{space 2} 36.18587{col 37}{space 1}    2.69{col 46}{space 3}0.012{col 54}{space 4} 22.96975{col 67}{space 3} 171.4643
+{txt}_IpolXtre_~1 {c |}{col 14}{res}{space 2} 71.32471{col 26}{space 2} 6.208705{col 37}{space 1}   11.49{col 46}{space 3}0.000{col 54}{space 4}  58.5855{col 67}{space 3} 84.06392
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 83.28747{col 26}{space 2} 5.745385{col 37}{space 1}   14.50{col 46}{space 3}0.000{col 54}{space 4} 71.49891{col 67}{space 3} 95.07603
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *B) OLS model 
+. gen lnCrime=ln(crime)
+{txt}
+{com}. gen lnPolice=ln(police)
+{txt}
+{com}. xi: reg lnCrime post lnPolice, vce(cluster borough)
+
+{txt}Linear regression                               Number of obs     = {res}     2,912
+                                                {txt}F(2, 27)          =  {res}   171.36
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.8751
+                                                {txt}Root MSE          =    {res} .12458
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:28} clusters in borough)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}     lnCrime{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 8}post {c |}{col 14}{res}{space 2}-.0518378{col 26}{space 2} .0098931{col 37}{space 1}   -5.24{col 46}{space 3}0.000{col 54}{space 4}-.0721368{col 67}{space 3}-.0315388
+{txt}{space 4}lnPolice {c |}{col 14}{res}{space 2} .7845985{col 26}{space 2} .0449926{col 37}{space 1}   17.44{col 46}{space 3}0.000{col 54}{space 4} .6922813{col 67}{space 3} .8769158
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-2.761793{col 26}{space 2} .2006687{col 37}{space 1}  -13.76{col 46}{space 3}0.000{col 54}{space 4}-3.173531{col 67}{space 3}-2.350055
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. xi: reg lnCrime post lnPolice, 
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}     2,912
+{txt}{hline 13}{c +}{hline 34}   F(2, 2909)      = {res} 10190.44
+{txt}       Model {c |} {res} 316.325899         2  158.162949   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 45.1497844     2,909  .015520723   {txt}R-squared       ={res}    0.8751
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.8750
+{txt}       Total {c |} {res} 361.475683     2,911  .124175776   {txt}Root MSE        =   {res} .12458
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}     lnCrime{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 8}post {c |}{col 14}{res}{space 2}-.0518378{col 26}{space 2}  .005405{col 37}{space 1}   -9.59{col 46}{space 3}0.000{col 54}{space 4}-.0624359{col 67}{space 3}-.0412397
+{txt}{space 4}lnPolice {c |}{col 14}{res}{space 2} .7845985{col 26}{space 2} .0054998{col 37}{space 1}  142.66{col 46}{space 3}0.000{col 54}{space 4} .7738147{col 67}{space 3} .7953824
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-2.761793{col 26}{space 2} .0248858{col 37}{space 1} -110.98{col 46}{space 3}0.000{col 54}{space 4}-2.810588{col 67}{space 3}-2.712997
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *C)
+. gsort borough week
+{txt}
+{com}. gen lagpolice=lnPolice[_n-52] if week>52
+{txt}(1,456 missing values generated)
+
+{com}. gen ChLnPolice= lnPolice-lagpolice
+{txt}(1,456 missing values generated)
+
+{com}. gen interac= treat*post
+{txt}
+{com}. 
+. reg ChLnPolice post interac, vce(cluster borough)
+
+{txt}Linear regression                               Number of obs     = {res}     1,456
+                                                {txt}F(2, 27)          =  {res}    44.95
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0665
+                                                {txt}Root MSE          =    {res} .09342
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:28} clusters in borough)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}  ChLnPolice{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 8}post {c |}{col 14}{res}{space 2} .0225148{col 26}{space 2}   .00902{col 37}{space 1}    2.50{col 46}{space 3}0.019{col 54}{space 4} .0040074{col 67}{space 3} .0410222
+{txt}{space 5}interac {c |}{col 14}{res}{space 2} .0761882{col 26}{space 2} .0114292{col 37}{space 1}    6.67{col 46}{space 3}0.000{col 54}{space 4} .0527374{col 67}{space 3}  .099639
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .0001565{col 26}{space 2} .0072416{col 37}{space 1}    0.02{col 46}{space 3}0.983{col 54}{space 4}-.0147019{col 67}{space 3}  .015015
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. reg ChLnPolice post interac
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}     1,456
+{txt}{hline 13}{c +}{hline 34}   F(2, 1453)      = {res}    51.74
+{txt}       Model {c |} {res} .902975842         2  .451487921   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res}  12.680232     1,453  .008726932   {txt}R-squared       ={res}    0.0665
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0652
+{txt}       Total {c |} {res} 13.5832078     1,455  .009335538   {txt}Root MSE        =   {res} .09342
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}  ChLnPolice{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 8}post {c |}{col 14}{res}{space 2} .0225148{col 26}{space 2} .0051077{col 37}{space 1}    4.41{col 46}{space 3}0.000{col 54}{space 4} .0124956{col 67}{space 3} .0325341
+{txt}{space 5}interac {c |}{col 14}{res}{space 2} .0761882{col 26}{space 2} .0100903{col 37}{space 1}    7.55{col 46}{space 3}0.000{col 54}{space 4} .0563951{col 67}{space 3} .0959813
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .0001565{col 26}{space 2} .0033976{col 37}{space 1}    0.05{col 46}{space 3}0.963{col 54}{space 4}-.0065082{col 67}{space 3} .0068212
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *D)
+. gen lagcrime=lnCrime[_n-52] if week>52
+{txt}(1,456 missing values generated)
+
+{com}. gen ChLnCrime= lnCrime- lagcrime
+{txt}(1,456 missing values generated)
+
+{com}. 
+. reg ChLnCrime post interac, vce(cluster borough)
+
+{txt}Linear regression                               Number of obs     = {res}     1,456
+                                                {txt}F(2, 27)          =  {res}     8.88
+                                                {txt}Prob > F          = {res}    0.0011
+                                                {txt}R-squared         = {res}    0.0338
+                                                {txt}Root MSE          =    {res} .11428
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:28} clusters in borough)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}   ChLnCrime{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 8}post {c |}{col 14}{res}{space 2} .0408456{col 26}{space 2} .0114755{col 37}{space 1}    3.56{col 46}{space 3}0.001{col 54}{space 4} .0172998{col 67}{space 3} .0643914
+{txt}{space 5}interac {c |}{col 14}{res}{space 2}-.0564072{col 26}{space 2} .0239375{col 37}{space 1}   -2.36{col 46}{space 3}0.026{col 54}{space 4} -.105523{col 67}{space 3}-.0072915
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-.0417577{col 26}{space 2} .0102882{col 37}{space 1}   -4.06{col 46}{space 3}0.000{col 54}{space 4}-.0628674{col 67}{space 3} -.020648
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. reg ChLnCrime post interac
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}     1,456
+{txt}{hline 13}{c +}{hline 34}   F(2, 1453)      = {res}    25.40
+{txt}       Model {c |} {res} .663450917         2  .331725459   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 18.9774042     1,453  .013060843   {txt}R-squared       ={res}    0.0338
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0324
+{txt}       Total {c |} {res} 19.6408551     1,455  .013498869   {txt}Root MSE        =   {res} .11428
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}   ChLnCrime{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 8}post {c |}{col 14}{res}{space 2} .0408456{col 26}{space 2} .0062485{col 37}{space 1}    6.54{col 46}{space 3}0.000{col 54}{space 4} .0285885{col 67}{space 3} .0531028
+{txt}{space 5}interac {c |}{col 14}{res}{space 2}-.0564072{col 26}{space 2} .0123441{col 37}{space 1}   -4.57{col 46}{space 3}0.000{col 54}{space 4}-.0806214{col 67}{space 3}-.0321931
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-.0417577{col 26}{space 2} .0041565{col 37}{space 1}  -10.05{col 46}{space 3}0.000{col 54}{space 4} -.049911{col 67}{space 3}-.0336044
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. 
+. 
+. /*
+> *1. Estimation of the DD model
+> 
+> gen logApp=ln(applications)
+> gen logPop=ln(Poptotal)
+> gen afterinc = (year>=2012) * (app_country == "England")
+> gen Eng = app_country=="England"
+> gen male = gender=="Male"
+> tabulate age_band, generate (age_dummy)
+> summarize logApp
+> xi: reg logApp Eng i.year afterinc male age_dummy2 age_dummy3 age_dummy4 logPop, vce(cluster app_country)
+> 
+> *2. Graph       
+> 
+> collapse (sum) applications, by (year app_country)
+> gen treat = app_country=="England"
+> gen logApp=ln(applications)
+> twoway (line logApp year if treat == 0) (line logApp year if treat == 1)
+> 
+> *3. country-specific  linear trend 
+> 
+> clear
+> use "C:\Users\k19056473\Downloads\TuitionFees.dta" 
+> gen logApp=ln(applications)
+> gen logPop=ln(Poptotal)
+> gen afterinc = (year>=2012) * (app_country == "England")
+> gen Eng = app_country=="England"
+> gen male = gender=="Male"
+> gen CounTrend=Eng*year
+> tabulate age_band, generate (age_dummy)
+> summarize logApp
+> xi: reg logApp Eng i.year CounTrend afterinc male age_dummy2 age_dummy3 age_dummy4 logPop, vce(cluster app_country)
+> 
+> *4. STEM and non-STEM subjects
+> 
+> gen NOSTEM = STEM==0
+> gen AIncSTEM = afterinc*STEM
+> gen AIncNOSTEM = afterinc*NOSTEM
+> xi: reg logApp Eng i.year i.STEM AIncSTEM AIncNOSTEM male age_dummy2 age_dummy3 age_dummy4 logPop, vce(cluster app_country)
+> 
+> *5.  Expected salary
+> 
+> gen AincQ1 = afterinc*Quartile== 1
+> gen AincQ2 = afterinc*Quartile== 2
+> gen AincQ3 = afterinc*Quartile== 3
+> gen AincQ4 = afterinc*Quartile== 4
+> 
+> xi: reg logApp Eng i.year i.Quartile AincQ1 AincQ2 AincQ3 AincQ4 male age_dummy2 age_dummy3 age_dummy4 logPop, vce(cluster app_country)
+> 
+> . translate "C:\Users\k19056473\Downloads\fees.smcl"   "C:\Users\k19056473\Downloads\PSet6Results.pdf"
+
+{txt}end of do-file
+
+{com}. 
