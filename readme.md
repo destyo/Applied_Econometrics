@@ -13,5 +13,11 @@ I will also add material to this repo on causal inference and experimental desig
 
 <p align="center">
 <img src="https://cdn.substack.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F8cd90dd4-0d2f-4e3d-b8ad-47091b18fa2b_1459x891.png" alt="drawing" width="800" />
- 
- 
+
+# Free Resources
+| Refernce                                                                                                               	| Autor 	| Description 	|
+|------------------------------------------------------------------------------------------------------------------------	|-------	|-------------	|
+| [Causal Inference for The Brave and True](https://matheusfacure.github.io/python-causality-handbook/landing-page.html) 	|   Matheus Facure Alves    	|             	|
+| [Causal Inference: What If](https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/)                         	|  Hernán MA, Robins JM     	|             	|
+| [The Effect](https://theeffectbook.net/index.html)                                                                                                                  	|   Nick Huntington-Klein
+
