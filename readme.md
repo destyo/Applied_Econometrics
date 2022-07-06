@@ -20,4 +20,4 @@ I will also add material to this repo on causal inference and experimental desig
 | [Causal Inference for The Brave and True](https://matheusfacure.github.io/python-causality-handbook/landing-page.html) 	|   Matheus Facure Alves    	|             	|
 | [Causal Inference: What If](https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/)                         	|  Hernán MA, Robins JM     	|             	|
 | [The Effect](https://theeffectbook.net/index.html)                                                                                                                  	|   Nick Huntington-Klein
-
+| [Causal Inference The Mixtape](https://mixtape.scunning.com/) 	|   Scott Cunningham   	|             	|
